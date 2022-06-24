@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { useState } from 'react';
-import { yellow } from '@material-ui/core/colors';
 
 //Text Inputs
 export default function Lesson5() {
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
 
   textInput: {
     padding: 10,
-    backgroundColor: yellow,
+    backgroundColor: "yellow",
     border: "1px solid black",
     margin: 10,
   }
