@@ -1,14 +1,19 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { useState } from 'react';
+import { yellow } from '@material-ui/core/colors';
 
 //Text Inputs
 export default function Lesson5() {
 const [name, setName] = useState("Andy");
-const [person, setPerson] = useState({name: "Xiaohu", age: 23});
+const [age, setAge] = useState("23");
 
   return (
     <View style={styles.container}>
-        <Text>My real name is {name}.</Text>
+        <Text>Choose your name:</Text>
+        <TextInput style={styles.textInput} placeholder="Name" onChangeText={(e) => setName(e)} multiline/>
+        <Text>Choose your age</Text>
+        <TextInput style={styles.textInput} placeholder="Age" onChangeText={(e) => setAge(e)}  keyboardType='numeric'/>
+        <Text>My real name is {name} and im {age} years old.</Text>
     </View>
   );
 }
@@ -20,4 +25,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  textInput: {
+    padding: 10,
+    backgroundColor: yellow,
+    border: "1px solid black",
+    margin: 10,
+  }
 });
