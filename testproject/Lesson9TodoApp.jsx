@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native
 import { useState } from 'react';
 import Header from './components/Header';
 
-//Touchable Components
+//Todo App
 export default function Lesson9TodoApp() {
 const [todos, setTodos] = useState([
     {text: "hol Kaffee", key: 1},
