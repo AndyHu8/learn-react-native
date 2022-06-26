@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import { useState } from 'react';
 import Header from './components/Header';
+import TodoItem from './components/TodoItem';
 
 //Todo App
 export default function Lesson9TodoApp() {
@@ -9,6 +10,12 @@ const [todos, setTodos] = useState([
     {text: "App entwickeln", key: 2},
     {text: "einkaufen", key: 3},
 ]);
+
+const pressHandler = (key) => {
+  setTodos((prevTodos) => {
+    return prevTodos.filter(todo => todo.key != key)
+  })
+}
 
   return (
     <View style={styles.container}>
@@ -19,7 +26,7 @@ const [todos, setTodos] = useState([
                 <FlatList
                 data={todos}
                 renderItem={({item}) => (
-                    <Text>{item.text}</Text>
+                    <TodoItem item={item} pressHandler={pressHandler}/>
                 )}
                 />
             </View>
