@@ -1,4 +1,4 @@
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Alert } from 'react-native';
 import { useState } from 'react';
 import Header from './components/Header';
 import TodoItem from './components/TodoItem';
@@ -19,12 +19,16 @@ const pressHandler = (key) => {
 }
 
 const submitHandler = (text) => {
-  setTodos(prevTodos => {
-    return [
-      {text: text, key: Math.random().toString()},
-      ...prevTodos
-    ]
-  })
+  if(text.length > 3) {
+    setTodos(prevTodos => {
+      return [
+        {text: text, key: Math.random().toString()},
+        ...prevTodos
+      ]
+    })
+  } else {
+    Alert.alert("UPS!", "Todo muss über 3 Character gehen!", [{text: "Verstanden", onPress: () => console.log("Alert closed")}]);
+  }
 }
 
   return (
